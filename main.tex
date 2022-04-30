@@ -73,7 +73,7 @@
 \pagenumbering{gobble}
 
 \author{
-    % \vspace{-0.3cm}
+    \vspace{-0.3cm}
     
     \IEEEauthorblockN{
         Alexander~C.~Whitehead~\IEEEauthorrefmark{1}~\IEEEauthorrefmark{2},
@@ -84,8 +84,6 @@
         Joanna~C.~Porter~\IEEEauthorrefmark{4},
         Helen~Garthwaite~\IEEEauthorrefmark{4},
         Scott~D.~Wollenweber~\IEEEauthorrefmark{3},
-        Charles~W.~Stearns~\IEEEauthorrefmark{3},
-        Brian~F.~Hutton~\IEEEauthorrefmark{1},
         Jamie~R.~McClelland~\IEEEauthorrefmark{2} and
         Kris~Thielemans~\IEEEauthorrefmark{1}~\IEEEauthorrefmark{2}
     }
@@ -105,7 +103,7 @@
     \IEEEauthorblockA{
         \IEEEauthorrefmark{4}
         \textit{Centre for Respiratory Medicine, University College London, London, UK}
-        \vspace{-0.5cm}
+        \vspace{-1.0cm}
     }
 
     \thanks{This research was supported by GE Healthcare, the NIHR UCLH Biomedical Research Centre and the UCL EPSRC Centre for Doctoral Training in Intelligent, Integrated Imaging in Healthcare (i4health) grant (EP/L016478/1).}
@@ -118,14 +116,20 @@
 \IEEEpeerreviewmaketitle
 
 \begin{abstract}
-    Respiratory motion correction is beneficial in positron emission tomography. Methods of motion correction include gated reconstruction, where the acquisition is binned based on a respiratory trace. To acquire these respiratory traces an external device like the Real Time Position Management system or a data driven method such as principal component analysis can be used. Data driven methods have the advantage that they are non-invasive and can be performed post-acquisition. However, data driven methods have the disadvantage that they are adversely affected by the tracer kinetics of a dynamic acquisition. This work seeks to evaluate several adaptions of the principal component analysis method through which it can be used with dynamic data. The methods explored in this work include using a moving window, extrapolation of the principal component from later time frames to earlier time frames as well as a method to select and combine multiple respiratory components. The respiratory traces acquired were evaluated by calculating their correlation with a Real Time Position Management surrogate signal and also by performing and comparing gated reconstructions using the traces. The results indicate that all methods produce better surrogate signals than when applying static principle component analysis to dynamic data. extrapolating a 'late' principal component produced a more promising result than using a moving window and selecting and combining components held benefits for all methods. Future research includes using the extracted respiratory signals in more complex motion correction algorithms for dynamic PET.
+    Respiratory motion correction is beneficial in PET. Methods of motion correction include gated reconstruction, where the acquisition is binned based on a respiratory trace. To acquire these respiratory traces an external device like the Real Time Position Management system or a data driven method such as principal component analysis can be used. Data driven methods have the advantage that they are non-invasive and can be performed post-acquisition. However, data driven methods have the disadvantage that they are adversely affected by the tracer kinetics of a dynamic acquisition. This work seeks to evaluate several adaptions of the principal component analysis method through which it can be used with dynamic data. The methods explored in this work include using a moving window (similar to the KRG method of Schleyer et al.), extrapolation of the principal component from later time frames to earlier time frames as well as a method to select and combine multiple respiratory components. The respiratory traces acquired were evaluated on $22$ patients by calculating their correlation with a Real Time Position Management surrogate signal. The results indicate that all methods produce better surrogate signals than when applying static principle component analysis to dynamic data. Extrapolating a late principal component produced a more promising result than using a moving window and selecting and combining components held benefits for all methods.
 \end{abstract}
 
 \vspace{-0.5cm}
 
 \input{body}
 
-\AtNextBibliography{\small}
+\vspace{-0.5cm}
+
+\AtNextBibliography
+{
+    \scriptsize
+    % \small
+}
 \printbibliography
 
 \end{document}
