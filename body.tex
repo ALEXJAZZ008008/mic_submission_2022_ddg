@@ -62,23 +62,34 @@
             
 \section{Results} \label{sec:results}
     \begin{figure}
+        \vspace{-0.3cm}
+        
         \centering
         
         % \includegraphics[width=0.9\linewidth]{figures/patient_one_output.png}
         \includegraphics[width=1.0\linewidth]{figures/patient_one_output.png}
         
+        \vspace{-0.3cm}
+        
         \captionsetup{singlelinecheck=false, justification=centering}
         \caption{
         \scriptsize
         A plot showing for each method its output compared to the \gls{RPM} for the first \SI{120}{\second} (between \SI{20}{\second} and \SI{140}{\second}) (taken for the first acquisition of patient one).}
+        
         \label{fig:patient_one_output}
+        
+        \vspace{-0.3cm}
     \end{figure}
     
     \begin{figure}
+        \vspace{-0.3cm}
+        
         \centering
         
         % \includegraphics[width=0.9\linewidth]{figures/box_plot.png}
         \includegraphics[width=1.0\linewidth]{figures/box_plot.png}
+        
+        \vspace{-0.3cm}
         
         \captionsetup{singlelinecheck=false, justification=centering}
         \caption{
@@ -86,16 +97,22 @@
         A box plot showing for each method its correlation coefficient to the \gls{RPM} for both the first \SI{120}{\second} (between \SI{20}{\second} and \SI{140}{\second}) and also for the entire acquisition (taken for seven acquisitions).}
         
         \label{fig:box_plot}
+        
+        % \vspace{-0.3cm}
     \end{figure}
     
     \begin{figure}
+        % \vspace{-0.3cm}
+        
         \centering
         
-                % \includegraphics[width=0.9\linewidth]{figures/all_correlation_coefficient_stairs.png}
+        % \includegraphics[width=0.9\linewidth]{figures/all_correlation_coefficient_stairs.png}
         \includegraphics[width=1.0\linewidth]{figures/all_correlation_coefficient_stairs.png}
         
         % \includegraphics[width=0.9\linewidth]{figures/all_correlation_coefficient.png}
         % \includegraphics[width=1.0\linewidth]{figures/all_correlation_coefficient.png}
+        
+        \vspace{-0.3cm}
         
         \captionsetup{singlelinecheck=false, justification=centering}
         \caption{
@@ -103,13 +120,18 @@
         A plot showing for each method its correlation coefficient to the \gls{RPM} for the first \SI{120}{\second} (between \SI{10}{\second} and \SI{130}{\second}, in twenty second windows) (taken as a mean for all data).}
         
         \label{fig:all_cross_correlation}
+        
+        \vspace{-0.3cm}
     \end{figure}
     
     % \begin{figure}
+    %     \vspace{-0.3cm}
     %     \centering
     
     %     \includegraphics[width=1.0\linewidth]{figures/patient_one_pc_output.png}    
     %     \includegraphics[width=1.0\linewidth]{figures/patient_one_pc_output.png}
+    
+    %     \vspace{-0.3cm}
         
     %     \captionsetup{singlelinecheck=false, justification=centering}
     %     \caption{
@@ -117,6 +139,8 @@
     %     A plot showing the \gls{PC} used to generate the output signal (taken for the first acquisition of patient one).}
     
     %     \label{fig:patient_one_pc_output}
+    
+    %     \vspace{-0.3cm}
     % \end{figure}
     
      From~\Fref{fig:patient_one_output} and~\Fref{fig:all_cross_correlation} it can be observed that the static \gls{PCA} method has failed as expected. Both moving window methods extract a signal at later time points only.. The Late Time Frame \gls{PC}, Select and Combine and Select and Combine using a Neural Network methods all appear to be able to extract a usable signal down to \SI{20}{\second} after the start of the scan.
