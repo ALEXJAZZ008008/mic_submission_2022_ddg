@@ -2,20 +2,20 @@
 \IEEEoverridecommandlockouts
 
 \usepackage[activate={true, nocompatibility}, final, tracking=true, kerning=true, spacing=true, factor=1100, stretch=10, shrink=10]{microtype}
-\linespread{0.95}
+% \linespread{0.95}
 
-% \def\ps@IEEEtitlepagestyle{
-%   \def\@oddfoot{\mycopyrightnotice}
-%   \def\@evenfoot{}
-% }
-% \def\mycopyrightnotice{
-%   {\footnotesize
-%   \begin{minipage}{\textwidth}
-%   \centering
-%   978-1-7281-7693-2/20/\$31.00 \copyright2020 IEEE
-%   \end{minipage}
-%   }
-% }
+\def\ps@IEEEtitlepagestyle{
+  \def\@oddfoot{\mycopyrightnotice}
+  \def\@evenfoot{}
+}
+\def\mycopyrightnotice{
+  {\footnotesize
+  \begin{minipage}{\textwidth}
+  \centering
+  978-1-7281-7693-2/20/\$31.00 \copyright2020 IEEE
+  \end{minipage}
+  }
+}
 
 \ifCLASSINFOpdf
    \usepackage[pdftex]{graphicx}
@@ -49,22 +49,22 @@
 \usepackage[style=ieee, doi=false, isbn=false, url=false, maxbibnames=1, minbibnames=1, maxcitenames=1, mincitenames=1, backend=biber, defernumbers=false]{biblatex}
 \addbibresource{./bibtex/bib/Biblio.bib}
 
-\AtEveryBibitem{\clearfield{month}}
-\AtEveryBibitem{\clearfield{day}}
-\AtEveryBibitem{\clearfield{volume}}
-\AtEveryBibitem{\clearfield{issue}}
-\AtEveryBibitem{\clearfield{pages}}
-\AtEveryBibitem{\clearfield{number}}
-\AtEveryBibitem{\clearfield{title}}
-\AtEveryBibitem{\clearfield{isbn}}
-\AtEveryBibitem{\clearfield{keywords}}
-\AtEveryBibitem{\clearfield{issn}}
-\AtEveryBibitem{\clearfield{journal}}
+% \AtEveryBibitem{\clearfield{month}}
+% \AtEveryBibitem{\clearfield{day}}
+% \AtEveryBibitem{\clearfield{volume}}
+% \AtEveryBibitem{\clearfield{issue}}
+% \AtEveryBibitem{\clearfield{pages}}
+% \AtEveryBibitem{\clearfield{number}}
+% \AtEveryBibitem{\clearfield{title}}
+% \AtEveryBibitem{\clearfield{isbn}}
+% \AtEveryBibitem{\clearfield{keywords}}
+% \AtEveryBibitem{\clearfield{issn}}
+% \AtEveryBibitem{\clearfield{journal}}
 
 \begin{document}
 
 \title{
-    \vspace{-0.75cm}
+    % \vspace{-0.75cm}
 
     Data Driven Surrogate Signal Extraction for Dynamic PET using Selective PCA
 }
@@ -73,7 +73,7 @@
 \pagenumbering{gobble}
 
 \author{
-    \vspace{-0.2cm}
+    % \vspace{-0.2cm}
     
     \IEEEauthorblockN{
         Alexander~C.~Whitehead~\IEEEauthorrefmark{1}~\IEEEauthorrefmark{2},
@@ -107,7 +107,7 @@
     \IEEEauthorblockA{
         \IEEEauthorrefmark{5}
         \textit{Centre for Respiratory Medicine, University College London, UK}
-        \vspace{-0.75cm}
+        % \vspace{-0.75cm}
     }
 
     \thanks{This research was supported by GE Healthcare, the NIHR UCLH Biomedical Research Centre and the UCL EPSRC Centre for Doctoral Training in Intelligent, Integrated Imaging in Healthcare (i4health) grant (EP/L016478/1).}
@@ -123,16 +123,16 @@
     Respiratory motion correction is beneficial in PET. Methods of motion correction include gated reconstruction, where the acquisition is binned, based on a respiratory trace. To acquire these respiratory traces, an external device, like the Real Time Position Management System, or a data driven method, such as PCA, can be used. Data driven methods have the advantage that they are non-invasive, and can be performed post-acquisition. However, data driven methods have the disadvantage that they are adversely affected by the tracer kinetics of a dynamic acquisition. This work seeks to evaluate several adaptions of the PCA method, through which it can be used with dynamic data. The methods explored in this work include, using a moving window (similar to the KRG method of Schleyer et al. (PMB 2014)), extrapolation of the principal component from later time points to earlier time points, as well as a method to select and combine multiple respiratory components. The respiratory traces acquired, were evaluated on $21$ patients, by calculating their correlation with a Real Time Position Management System surrogate signal. The results indicate that all methods produce better surrogate signals than when applying static PCA to dynamic data. Extrapolating a late principal component, produced more promising results than using a moving window, and selecting and combining components held benefits for all methods.
 \end{abstract}
 
-\vspace{-0.5cm}
+% \vspace{-0.5cm}
 
 \input{body}
 
-\vspace{-0.5cm}
+% \vspace{-0.5cm}
 
-\AtNextBibliography{
+% \AtNextBibliography{
     % \scriptsize
-    \small
-}
+%     \small
+% }
 \printbibliography
 
 \end{document}

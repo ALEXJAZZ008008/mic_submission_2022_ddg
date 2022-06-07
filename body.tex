@@ -5,13 +5,13 @@
     
     The aim of this work is to propose several adaptions of the \acrshort{PCA} method, through which it can be used with dynamic \acrshort{PET} data, and compare their performance with a method based on \gls{KRG}. The methods explored in this work include; the use of a moving window, re-use of the \glss{PC} from a later time point to estimate the \gls{SS} from earlier time points, and the automatic selection and combination of multiple \glss{PC}.
 
-\vspace{-0.5cm}
+% \vspace{-0.5cm}
     
 \section{Methods} \label{sec:methods}
     \subsection{Data Acquisition} \label{sec:data_acquisition}
         Data was acquired from a research study with patients suffering from idiopathic pulmonary fibrosis. $21$ dynamic \acrshort{18F-FDG} \acrshort{PET} acquisitions, with a \acrlong{FOV} covering the upper lung and heart, were acquired on a \acrshort{GE} Discovery $710$~\cite{Oh2019OptimalTreatment, Emond2020EffectReconstruction}. \glss{SS} were acquired in parallel using the \gls{RPM}.
     
-    \vspace{-0.5cm}
+    % \vspace{-0.5cm}
         
     \subsection{Data Preparation} \label{sec:data_preparation}
         \gls{TOF} data were unlisted into low spatial resolution sinograms, each with a time frame duration of \SI{500}{\milli\second}, using the \acrshort{GE} PetToolbox, resulting in sinograms with dimensions $95\times16\times47\times11$ (radial positions$\times$angles$\times$transaxial plane$\times$\gls{TOF}).
@@ -20,17 +20,17 @@
         
         \acrshort{PCA} was applied to the \gls{TOF} data~\cite{Bertolli2017DataData}.
     
-    \vspace{-0.5cm}
+    % \vspace{-0.5cm}
         
     \subsection{Moving Window} \label{sec:moving_window}
         The data is split into a series of windows, where each subsequent window overlaps with the previous by half its length. The size of each window is predetermined and was selected experimentally. For this method \acrshort{PCA} is applied independently on each window, and the results are averaged together, after sign correction. As the sign of the signal from each window is arbitrary, the overlapping allows for a common sign to be found, by comparing the correlation coefficient of neighbouring windows. If \gls{SAM} is used here rather than \acrshort{PCA}, then the method approximates \gls{KRG}~\cite{Schleyer2014}.
         
-    \vspace{-0.5cm}
+    % \vspace{-0.5cm}
             
     \subsection{Late Time Point} \label{sec:late_time_point}
         A \gls{PC} from a late time point is taken, and used with early time point data. The cutoff between early and later time points was determined experimentally; by varying the cutoff point and observing the impact on the correlation coefficient, between the output and \gls{RPM} signal for the first \SI{120}{\second} (between \SI{20}{\second} and \SI{140}{\second}).
         
-    \vspace{-0.5cm}
+    % \vspace{-0.5cm}
     
     \subsection{Select and Combine} \label{sec:select_and_combine}
         Here a "respiratory score" is used to order and combine multiple \glss{PC} to maximise this score.
@@ -40,35 +40,35 @@
               
               In the first, \gls{PSD} are calculated, and frequency windows representing the content of information related to radiotracer kinetics, respiratory motion, and noise are defined. The contribution within each window is determined for each \gls{PC}, by finding the maximum magnitude within the windows. Ratios are then calculated between the respiratory and the kinetic windows, and the respiratory and the noise windows and a score determined by the product of these two values.
         
-        % \vspace{-0.5cm}
+        % % \vspace{-0.5cm}
         
         %\subsubsection{Selecting \glss{PC} Using A Neural Network} \label{sec:selecting_pcs_using_a_neural_network}
             In the second, a \gls{NN} was used for scoring. The \gls{NN} is a pre-trained model, designed to accept a signal as input, and return a score between $0.0$ and $1.0$, where the greater the value the more respiratory-like the signal. The \gls{NN} was originally trained on a similar set of training data, where the scores were predetermined by clinicians~\cite{Walker2020AutomaticAI}.
         
-        % \vspace{-0.5cm}
+        % % \vspace{-0.5cm}
         
         \subsubsection{Combining \glss{PC}} \label{sec:combining_pcs}
             \glss{PC} are first sorted according to the score. The sorted \glss{PC} are iterated over and both summed and subtracted with a weighting (the score), and a new score is found for both resulting signals. If one of the signals increases the score, it becomes the new best \gls{PC}, and goes forward to the next iteration. \glss{PC} are both summed and subtracted to handle the arbitrary sign problem.
             
             A similar method of combining signals was developed in~\cite{Kesner2010AMethods}. However, the scoring method used there (standard deviation) is not directly related to respiration. In addition,~\cite{Kesner2010AMethods} combined signals from voxels where our methods uses \glss{PC}.
         
-    \vspace{-0.5cm}
+    % \vspace{-0.5cm}
             
     \subsection{Evaluation} \label{sec:evaluation}
         For evaluation of the results, the correlation coefficient of each \gls{SS} between each method and the \gls{RPM}, for all acquisitions, has been calculated. The correlation coefficient has been calculated for both the first \SI{120}{\second}, and also the entire acquisition.
     
-\vspace{-0.4cm}
+% \vspace{-0.4cm}
             
 \section{Results} \label{sec:results}
     \begin{figure}
-        \vspace{-0.5cm}
+        % \vspace{-0.5cm}
         
         \centering
         
         \includegraphics[width=1.0\linewidth]{figures/patient_one_output.png}
         % \includegraphics[width=1.0\linewidth]{figures/patient_one_output.png}
         
-        \vspace{-0.4cm}
+        % \vspace{-0.4cm}
         
         \captionsetup{singlelinecheck=false, justification=centering}
         \caption{
@@ -77,18 +77,18 @@
         
         \label{fig:patient_one_output}
         
-        \vspace{-0.5cm}
+        % \vspace{-0.5cm}
     \end{figure}
     
     \begin{figure}
-        \vspace{-0.5cm}
+        % \vspace{-0.5cm}
         
         \centering
         
         \includegraphics[width=1.0\linewidth]{figures/box_plot.png}
         % \includegraphics[width=1.0\linewidth]{figures/box_plot.png}
         
-        \vspace{-0.4cm}
+        % \vspace{-0.4cm}
         
         \captionsetup{singlelinecheck=false, justification=centering}
         \caption{
@@ -97,21 +97,18 @@
         
         \label{fig:box_plot}
         
-        % \vspace{-0.5cm}
+        % % \vspace{-0.5cm}
     \end{figure}
     
     \begin{figure}
-        % \vspace{-0.5cm}
+        % % \vspace{-0.5cm}
         
         \centering
         
-        \includegraphics[width=1.0\linewidth]{figures/all_correlation_coefficient_stairs.png}
-        % \includegraphics[width=1.0\linewidth]{figures/all_correlation_coefficient_stairs.png}
-        
-        % \includegraphics[width=1.0\linewidth]{figures/all_correlation_coefficient.png}
+        \includegraphics[width=1.0\linewidth]{figures/all_correlation_coefficient.png}
         % \includegraphics[width=1.0\linewidth]{figures/all_correlation_coefficient.png}
         
-        \vspace{-0.5cm}
+        % \vspace{-0.5cm}
         
         \captionsetup{singlelinecheck=false, justification=centering}
         \caption{
@@ -120,35 +117,35 @@
         
         \label{fig:all_cross_correlation}
         
-        \vspace{-0.5cm}
+        % \vspace{-0.5cm}
     \end{figure}
     
-    % \begin{figure}
-    %     \vspace{-0.5cm}
-    %     \centering
+    \begin{figure}
+        % \vspace{-0.5cm}
+        \centering
     
-    %     \includegraphics[width=1.0\linewidth]{figures/patient_one_pc_output.png}    
-    %     \includegraphics[width=1.0\linewidth]{figures/patient_one_pc_output.png}
+        \includegraphics[width=1.0\linewidth]{figures/patient_one_pc_output.png}    
+        % \includegraphics[width=1.0\linewidth]{figures/patient_one_pc_output.png}
     
-    %     \vspace{-0.5cm}
+        % \vspace{-0.5cm}
         
-    %     \captionsetup{singlelinecheck=false, justification=centering}
-    %     \caption{
-    %     \scriptsize
-    %     A plot showing the \gls{PC} used to generate the output signal (taken for the first acquisition of patient one).}
+        \captionsetup{singlelinecheck=false, justification=centering}
+        \caption{
+        % \scriptsize
+        A plot showing the \gls{PC} used to generate the output signal (taken for the first acquisition of patient one).}
     
-    %     \label{fig:patient_one_pc_output}
+        \label{fig:patient_one_pc_output}
     
-    %     \vspace{-0.5cm}
-    % \end{figure}
+        % \vspace{-0.5cm}
+    \end{figure}
     
     From~\Fref{fig:patient_one_output} and~\Fref{fig:all_cross_correlation} it can be observed that the Static \acrshort{PCA} method has failed, as expected. Both Moving Window methods extract a signal at later time points only. The Late Time Point, Select and Combine \gls{PSD}, and Select and Combine \gls{NN} methods all appear to be able to extract a usable signal, down to \SI{20}{\second} after the start of the scan.
     
     In~\Fref{fig:box_plot}, the improvement of the Late Time Point, Select and Combine \gls{PSD}, and Select and Combine \gls{NN} methods is most apparent, with high correlation coefficients for both the early time point, as well as for all data. The Select and Combine methods show marginally higher correlation coefficients than the Late Time Point method, and the \gls{NN} shows slightly higher correlation coefficients than the \gls{PSD}.
     
-    % In~\Fref{fig:patient_one_pc_output} it can be observed the Static \acrshort{PCA} method returns a \gls{PC} which closely resembles the input data, leading to the conclusion that variation from a number of sources is included. It appears from a visual inspection that the least confounding variation and noise is included in the Select and Combine with \gls{NN} method.
+    In~\Fref{fig:patient_one_pc_output} it can be observed the Static \acrshort{PCA} method returns a \gls{PC} which closely resembles the input data, leading to the conclusion that variation from a number of sources is included. It appears from a visual inspection that the least confounding variation and noise is included in the Select and Combine with \gls{NN} method.
 
-\vspace{-0.4cm}
+% \vspace{-0.4cm}
 
 \section{Discussion and Conclusions} \label{sec:discussion_and_conclusions}
     Results from the comparison to the \gls{RPM} indicate, the Late Time Point and both Select and Combine methods are more robust and afford higher quality signals than both Moving Window methods. The results also indicate, both Select and Combine methods can give a higher correlation coefficient earlier than the Late Time Point method. The \gls{NN} shows slightly higher correlation coefficient than the \gls{PSD}.
