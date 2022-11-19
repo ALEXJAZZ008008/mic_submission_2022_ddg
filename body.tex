@@ -23,7 +23,51 @@
     % \vspace{-0.5cm}
         
     \subsection{Moving Window} \label{sec:moving_window}
+        \begin{figure}
+            % \vspace{-0.5cm}
+            
+            \centering
+            
+            \includegraphics[width=1.0\linewidth]{figures/pca_window_correlation_coefficient.png}
+            % \includegraphics[width=1.0\linewidth]{figures/pca_window_correlation_coefficient.png}
+            
+            % \vspace{-0.4cm}
+            
+            \captionsetup{singlelinecheck=false, justification=centering}
+            \caption{
+            % \scriptsize
+            A plot showing the Moving Window size optimisation for the \gls{PCA} method. For different fixed window sizes, the correlation of the extracted signal  to the \gls{RPM}  is shown for the windows sliding over the whole acquisition (taken for the first acquisition of patient one). Note that \SI{0.5}{s} time frames were used.}
+            
+            \label{fig:pca_window_correlation_coefficient}
+            
+            % \vspace{-0.5cm}
+        \end{figure}
+            
+        % \begin{figure}
+            % \vspace{-0.5cm}
+            
+        %     \centering
+            
+        %     \includegraphics[width=1.0\linewidth]{figures/sam_window_correlation_coefficient.png}
+            % \includegraphics[width=1.0\linewidth]{figures/sam_window_correlation_coefficient.png}
+            
+            % \vspace{-0.4cm}
+            
+        %     \captionsetup{singlelinecheck=false, justification=centering}
+        %     \caption{
+            % \scriptsize
+        %     A plot showing the Moving Window size optimisation for the \gls{SAM} method. For different fixed window sizes, the correlation of the extracted signal  to the \gls{RPM}  is shown for the windows sliding over the whole acquisition (taken for the first acquisition of patient one). Note that \SI{0.5}{s} time frames were used.}
+            
+        %     \label{fig:sam_window_correlation_coefficient}
+            
+            % \vspace{-0.5cm}
+        % \end{figure}
+    
         The data is split into a series of windows, where each subsequent window overlaps with the previous by half its length. The size of each window is predetermined and was selected experimentally. For this method \acrshort{PCA} is applied independently on each window, and the results are averaged together, after sign correction. As the sign of the signal from each window is arbitrary, the overlapping allows for a common sign to be found, by comparing the correlation coefficient of neighbouring windows. If \gls{SAM} is used here rather than \acrshort{PCA}, then the method approximates \gls{KRG}~\cite{Schleyer2014}.
+        
+        In~\Fref{fig:pca_window_correlation_coefficient}% and~\Fref{fig:sam_window_correlation_coefficient}
+        , the Moving Window size optimisation for the \gls{PCA} %and \gls{SAM} 
+        method can be seen.
         
     % \vspace{-0.5cm}
             
@@ -85,20 +129,60 @@
         
         \centering
         
-        \includegraphics[width=1.0\linewidth]{figures/box_plot.png}
-        % \includegraphics[width=1.0\linewidth]{figures/box_plot.png}
+        \includegraphics[width=1.0\linewidth]{figures/box_plot_early.png}
+        % \includegraphics[width=1.0\linewidth]{figures/box_plot_early.png}
         
         % \vspace{-0.4cm}
         
         \captionsetup{singlelinecheck=false, justification=centering}
         \caption{
         % \scriptsize
-        A box plot showing for each method its correlation coefficient, to the \gls{RPM}, for both the first \SI{120}{\second} (between \SI{20}{\second} and \SI{140}{\second}), and also for the entire acquisition (taken for seven acquisitions).}
+        A box plot showing for each method its correlation coefficient, to the \gls{RPM}, for the entire acquisition (taken for seven acquisitions).}
         
-        \label{fig:box_plot}
+        \label{fig:box_plot_early}
         
         % % \vspace{-0.5cm}
     \end{figure}
+    
+        \begin{figure}
+        % \vspace{-0.5cm}
+        
+        \centering
+        
+        \includegraphics[width=1.0\linewidth]{figures/box_plot_all.png}
+        % \includegraphics[width=1.0\linewidth]{figures/box_plot_all.png}
+        
+        % \vspace{-0.4cm}
+        
+        \captionsetup{singlelinecheck=false, justification=centering}
+        \caption{
+        % \scriptsize
+        A box plot showing for each method its correlation coefficient, to the \gls{RPM}, for the first \SI{120}{\second} (between \SI{20}{\second} and \SI{140}{\second}) (taken for seven acquisitions).}
+        
+        \label{fig:box_plot_all}
+        
+        % % \vspace{-0.5cm}
+    \end{figure}
+    
+    % \begin{figure}
+        % \vspace{-0.5cm}
+        
+    %     \centering
+        
+    %     \includegraphics[width=1.0\linewidth]{figures/box_plot.png}
+        % \includegraphics[width=1.0\linewidth]{figures/box_plot.png}
+        
+        % \vspace{-0.4cm}
+        
+    %     \captionsetup{singlelinecheck=false, justification=centering}
+    %     \caption{
+        % \scriptsize
+    %     A box plot showing for each method its correlation coefficient, to the \gls{RPM}, for both the first \SI{120}{\second} (between \SI{20}{\second} and \SI{140}{\second}), and also for the entire acquisition (taken for seven acquisitions).}
+        
+    %     \label{fig:box_plot}
+        
+        % % \vspace{-0.5cm}
+    % \end{figure}
     
     \begin{figure}
         % % \vspace{-0.5cm}
@@ -141,7 +225,7 @@
     
     From~\Fref{fig:patient_one_output} and~\Fref{fig:all_cross_correlation} it can be observed that the Static \acrshort{PCA} method has failed, as expected. Both Moving Window methods extract a signal at later time points only. The Late Time Point, Select and Combine \gls{PSD}, and Select and Combine \gls{NN} methods all appear to be able to extract a usable signal, down to \SI{20}{\second} after the start of the scan.
     
-    In~\Fref{fig:box_plot}, the improvement of the Late Time Point, Select and Combine \gls{PSD}, and Select and Combine \gls{NN} methods is most apparent, with high correlation coefficients for both the early time point, as well as for all data. The Select and Combine methods show marginally higher correlation coefficients than the Late Time Point method, and the \gls{NN} shows slightly higher correlation coefficients than the \gls{PSD}.
+    In~\Fref{fig:box_plot_early} and~\Fref{fig:box_plot_all}, the improvement of the Late Time Point, Select and Combine \gls{PSD}, and Select and Combine \gls{NN} methods is most apparent, with high correlation coefficients for both the early time point, as well as for all data. The Select and Combine methods show marginally higher correlation coefficients than the Late Time Point method, and the \gls{NN} shows slightly higher correlation coefficients than the \gls{PSD}.
     
     In~\Fref{fig:patient_one_pc_output} it can be observed the Static \acrshort{PCA} method returns a \gls{PC} which closely resembles the input data, leading to the conclusion that variation from a number of sources is included. It appears from a visual inspection that the least confounding variation and noise is included in the Select and Combine with \gls{NN} method.
 
