@@ -1,4 +1,4 @@
-\section{Introduction} \label{sec:introduction}
+\section{INTRODUCTION} \label{sec:introduction}
     \IEEEPARstart{R}{espiratory} motion reduces image resolution by introducing blurring and mis-alignment artefacts~\cite{Nehmeh2008a}. Methods of \gls{MC} include gated reconstruction; bin the acquisition based on a \gls{SS}. This \gls{SS} is a respiratory trace which reflects the position of the patient in the respiratory cycle over time~\cite{Kesner2010AMethods, Kesner2013GatingPET}. Methods to determine the \gls{SS} include those which use an external device, for instance, the \gls{RPM}~\cite{Bettinardi2013Motion-trackingPET/CT}. A disadvantage of such methods are that they require the use of additional equipment, and a change to clinical practice. Thus, data driven methods to extract the \gls{SS} have become an alternative for static \acrshort{PET} data. However, current data driven methods are adversely affected by the radiotracer kinetics of a dynamic \acrshort{PET} acquisition; where the tracer is injected after the beginning of the scan. As an example, methods that use dimensionality reduction (such as \acrshort{PCA}~\cite{Thielemans2011, Bertolli2018Data-DrivenTomography}) are hampered by the fact that at the start of the scan, rapid redistribution of the radiotracer causes more variance in the data, than the respiratory motion.
     
     Previously, work was performed to extend \gls{SAM} to be robust to radiotracer kinetics. This work proposed the use of \gls{STFT}, to generate masks for \gls{SAM}. This was called \gls{KRG}~\cite{Schleyer2014}. \gls{STFT} operates by splitting the data into time windows, and doing a \acrlong{FFT} on them independently. This could be approximated by windowing the data first, and then performing \gls{SAM}.
@@ -7,7 +7,7 @@
 
 % \vspace{-0.5cm}
     
-\section{Methods} \label{sec:methods}
+\section{METHODS} \label{sec:methods}
     \subsection{Data Acquisition} \label{sec:data_acquisition}
         Data was acquired from a research study with patients suffering from idiopathic pulmonary fibrosis. $21$ dynamic \acrshort{18F-FDG} \acrshort{PET} acquisitions, with a \acrlong{FOV} covering the upper lung and heart, were acquired on a \acrshort{GE} Discovery $710$~\cite{Oh2019OptimalTreatment, Emond2020EffectReconstruction}. \glss{SS} were acquired in parallel using the \gls{RPM}.
     
@@ -103,7 +103,7 @@
     
 % \vspace{-0.4cm}
             
-\section{Results} \label{sec:results}
+\section{RESULTS} \label{sec:results}
     \begin{figure}
         % \vspace{-0.5cm}
         
@@ -231,7 +231,7 @@
 
 % \vspace{-0.4cm}
 
-\section{Discussion and Conclusions} \label{sec:discussion_and_conclusions}
+\section{DISCUSSION AND CONCLUSIONS} \label{sec:discussion_and_conclusions}
     Results from the comparison to the \gls{RPM} indicate, the Late Time Point and both Select and Combine methods are more robust and afford higher quality signals than both Moving Window methods. The results also indicate, both Select and Combine methods can give a higher correlation coefficient earlier than the Late Time Point method. The \gls{NN} shows slightly higher correlation coefficient than the \gls{PSD}.
     
     In the future, research will focus on further development of the method, including, optimisation of the \gls{NN} scoring method. In the next stage, these methods will be applied to the task of implementing advanced respiratory \acrlong{MC} on dynamic \acrshort{PET} data.
